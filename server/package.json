@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node server.js"
   },
+  "scripts": {
+    "test": "jest"
+  },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
