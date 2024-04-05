@@ -1,5 +1,5 @@
-const User = require("../modeles/User");
-const bcrypt = require("bcryptjs");
+const User = require("../modeles/userModels");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // Supposons que vous avez une fonction pour générer des JWT
 

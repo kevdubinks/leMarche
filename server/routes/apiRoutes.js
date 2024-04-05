@@ -2,13 +2,13 @@ const express = require("express");
 const { body, validationResult } = require("express-validator");
 const router = express.Router();
 
-const isAdmin = require("../middlewares/isAdmin");
-const authenticate = require("../middlewares/authenticate");
+const isAdmin = require("../middleware/isAdmin");
+const authenticate = require("../middleware/authenticate");
 
 const productsController = require("../controllers/productsController");
-const usersController = require("../controllers/usersController");
-const ordersController = require("../controllers/ordersController");
-const reviewsController = require("../controllers/reviewsController");
+const usersController = require("../controllers/userController");
+const ordersController = require("../controllers/orderController");
+const reviewsController = require("../controllers/reviewController");
 
 // Fonction de gestion des erreurs de validation
 const validate = (req, res, next) => {
