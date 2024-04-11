@@ -1,6 +1,6 @@
 // tests/usersController.test.js
 const request = require("supertest");
-const app = require("../app"); // Assurez-vous d'exporter votre instance d'application Express
+const app = require("../database"); // Assurez-vous d'exporter votre instance d'application Express
 
 describe("POST /users/register", () => {
   it("should register a new user", async () => {

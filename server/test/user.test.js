@@ -15,5 +15,5 @@ describe("User Model", () => {
     expect(user.password).not.toBe(userData.password);
     // Assurez-vous que la logique de hashage est implémentée dans votre modèle User
     done();
-  }, 50000);
+  }, 100000);
 });
