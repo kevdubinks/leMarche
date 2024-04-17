@@ -18,3 +18,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`LeMarché.fr écoutant sur le port ${port}`);
 });
+module.exports = app;
