@@ -15,7 +15,9 @@ app.use(limiter);
 app.get("/", (req, res) => {
   res.send("LeMarché.fr est en ligne !");
 });
-app.use("/api", apiRoutes);
+app.use(express.json());
+
+app.use("/api", apiRoute);
 app.listen(port, () => {
   console.log(`LeMarché.fr écoutant sur le port ${port}`);
 });

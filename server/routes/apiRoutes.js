@@ -13,6 +13,7 @@ const reviewsController = require("../controllers/reviewController");
 // Fonction de gestion des erreurs de validation
 const validate = (req, res, next) => {
   const errors = validationResult(req);
+  console.log(req.body);
   if (!errors.isEmpty()) {
     return res
       .status(400)
@@ -26,15 +27,7 @@ router.post(
   "/users/register",
   [
     body("username").notEmpty().withMessage("Le nom d’utilisateur est requis."),
-    body("email")
-      .isEmail()
-      .withMessage("L’email doit être valide.")
-      .custom(async (email) => {
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-          throw new Error("L'email est déjà utilisé par un autre compte.");
-        }
-      }),
+    body("email").isEmail().withMessage("L’email doit être valide."),
     body("password")
       .isLength({ min: 6 })
       .withMessage("Le mot de passe doit contenir au moins 6 caractères."),
