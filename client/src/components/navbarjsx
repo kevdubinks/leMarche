@@ -1,0 +1,27 @@
+// src/components/Navbar.jsx
+
+import { Link } from "react-router-dom";
+import "./Navbar.css"; // N'oubliez pas de créer le fichier de style correspondant
+
+function Navbar() {
+  return (
+    <header className="navbar">
+      <div className="navbar-container">
+        <Link to="/" className="navbar-brand">
+          LeMarché
+        </Link>
+        <nav className="nav">
+          <Link to="/oeuvres" className="nav-item">
+            Toutes les œuvres
+          </Link>
+          <Link to="/apropos" className="nav-item">
+            À propos
+          </Link>
+          {/* Ajoutez d'autres liens de navigation ici si nécessaire */}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;

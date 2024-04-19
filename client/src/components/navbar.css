@@ -1,0 +1,40 @@
+/* src/components/Navbar.css */
+
+.navbar {
+    background-color: #f8f9fa; /* Couleur de fond */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée */
+    padding: 1rem 0; /* Espacement vertical */
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Largeur maximale du contenu de la navbar */
+    margin: 0 auto; /* Centrage horizontal */
+    padding: 0 1rem; /* Espacement horizontal */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; /* Taille de la marque ou du logo */
+    color: #333; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement pour les liens */
+    font-weight: bold; /* Poids de la police */
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1rem; /* Espacement entre les éléments de navigation */
+  }
+  
+  .nav-item {
+    color: #333; /* Couleur du texte */
+    text-decoration: none; /* Pas de soulignement pour les liens */
+    padding: 0.5rem 0; /* Espacement vertical pour les liens */
+    border-bottom: 2px solid transparent; /* Bordure transparente pour l'effet de survol */
+  }
+  
+  .nav-item:hover, .nav-item:focus {
+    border-bottom-color: #000; /* Couleur de bordure au survol */
+  }
+  
