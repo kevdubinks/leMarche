@@ -10,21 +10,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px; /* Largeur maximale du contenu de la navbar */
-    margin: 0 auto; /* Centrage horizontal */
-    padding: 0 1rem; /* Espacement horizontal */
+     /* Largeur maximale du contenu de la navbar */
+    margin: 0 ; /* Centrage horizontal */
+    padding: 0 ; /* Espacement horizontal */
   }
   
   .navbar-brand {
-    font-size: 1.5rem; /* Taille de la marque ou du logo */
+    font-size: 1.6rem; /* Taille de la marque ou du logo */
     color: #333; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement pour les liens */
     font-weight: bold; /* Poids de la police */
-  }
+    margin-left: 0;  
+}
   
   .nav {
     display: flex;
-    gap: 1rem; /* Espacement entre les éléments de navigation */
+    gap: 1.7em; /* Espacement entre les éléments de navigation */
   }
   
   .nav-item {

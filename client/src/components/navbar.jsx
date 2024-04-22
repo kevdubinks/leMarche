@@ -8,15 +8,21 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          LeMarché
-        </Link>
+          mapetitebrocante.fr</Link>
         <nav className="nav">
-          <Link to="/oeuvres" className="nav-item">
-            Toutes les œuvres
+        <Link to="/vétements" className="nav-item">
+             Styles à Travers les Temps
           </Link>
-          <Link to="/apropos" className="nav-item">
-            À propos
+        <Link to="/décorations" className="nav-item">
+         Espaces Inspirés
           </Link>
+          <Link to="/musiques" className="nav-item">
+            Échos Musicaux
+          </Link>
+          <Link to="/laTeam" className="nav-item">
+            Les Compagnons
+          </Link>
+         
           {/* Ajoutez d'autres liens de navigation ici si nécessaire */}
         </nav>
       </div>
