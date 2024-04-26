@@ -8,7 +8,7 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          mapetitebrocante.fr</Link>
+          mapetitebrocante</Link>
         <nav className="nav">
         <Link to="/vétements" className="nav-item">
              Styles à Travers les Temps

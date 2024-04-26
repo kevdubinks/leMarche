@@ -5,12 +5,13 @@
     justify-content: center; /* Centrage horizontal */
     align-items: center; /* Centrage vertical */
     height: 200px; /* Hauteur de la section, ajustez selon vos besoins */
-    background-color: #3b526b; /* Couleur de fond de la section */
+    background-color: #fcfcfc; /* Couleur de fond de la section */
   }
   
   .slogan {
+    font-family: 'Futura PT', sans-serif;
     font-size: 2rem; /* Taille de la police du slogan */
-    color: white; /* Couleur du texte du slogan */
+    color: rgb(0, 0, 0); /* Couleur du texte du slogan */
     text-transform: uppercase; /* Optionnel: Mettre le texte en majuscules */
     letter-spacing: 1px; /* Espacement des lettres */
     padding: 20px; /* Ajustez le padding selon vos besoins */

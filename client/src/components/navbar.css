@@ -16,6 +16,7 @@
   }
   
   .navbar-brand {
+    font-family: 'Futura PT', sans-serif;
     font-size: 1.6rem; /* Taille de la marque ou du logo */
     color: #333; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement pour les liens */
@@ -29,6 +30,7 @@
   }
   
   .nav-item {
+    font-family: 'Futura PT', sans-serif;
     color: #333; /* Couleur du texte */
     text-decoration: none; /* Pas de soulignement pour les liens */
     padding: 0.5rem 0; /* Espacement vertical pour les liens */
