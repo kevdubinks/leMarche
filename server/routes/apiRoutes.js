@@ -9,7 +9,19 @@ const productsController = require("../controllers/productsController");
 const usersController = require("../controllers/userController");
 const ordersController = require("../controllers/orderController");
 const reviewsController = require("../controllers/reviewController");
-
+const multer = require("multer");
+const upload = multer({
+  limits: {
+    fileSize: 5 * 1024 * 1024, // Limite la taille du fichier à 5MB
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+      // Assurez que le fichier est une image
+      return cb(new Error("Please upload an image."));
+    }
+    cb(undefined, true);
+  },
+});
 // Fonction de gestion des erreurs de validation
 const validate = (req, res, next) => {
   const errors = validationResult(req);
@@ -57,6 +69,7 @@ router.post(
   "/products/add",
   authenticate,
   isAdmin,
+  upload.single("image"), // 'image' est le nom du champ dans le formulaire de requête
   [
     body("name").notEmpty().withMessage("Le nom du produit est requis."),
     body("price")

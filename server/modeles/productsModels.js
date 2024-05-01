@@ -20,9 +20,9 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    imageUrl: {
-      type: String,
-      default: "",
+    image: {
+      // Modification ici pour utiliser un champ buffer pour l'image
+      type: Buffer,
     },
     category: {
       type: String,

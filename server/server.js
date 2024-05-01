@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 const rateLimit = require("express-rate-limit");
@@ -11,6 +12,14 @@ const limiter = rateLimit({
   standardHeaders: true, // Retourne les infos du rate limit dans les headers `RateLimit-*`
   legacyHeaders: false, // Désactive les headers `X-RateLimit-*`
 });
+app.use(
+  cors({
+    origin: "http://localhost:5173", // URL de votre front-end
+    methods: ["GET", "POST", "PUT", "DELETE"], // Méthodes HTTP autorisées
+    credentials: true, // Permet le support des sessions entre les domaines
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(limiter);
 app.get("/", (req, res) => {
   res.send("LeMarché.fr est en ligne !");

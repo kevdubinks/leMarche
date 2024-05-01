@@ -22,13 +22,24 @@ exports.getProductById = async (req, res) => {
 };
 
 // Ajouter un nouveau produit
+
 exports.addProduct = async (req, res) => {
   try {
-    const newProduct = new Product(req.body);
-    await newProduct.save();
-    res.status(201).json(newProduct);
+    const product = new Product({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      inStock: req.body.inStock,
+      image: req.file.buffer, // Stockez le buffer de l'image
+      category: req.body.category,
+    });
+
+    await product.save();
+    res
+      .status(201)
+      .send({ message: "Product added successfully", productId: product._id });
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send({ error: error.message });
   }
 };
 
