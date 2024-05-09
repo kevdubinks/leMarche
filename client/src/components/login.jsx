@@ -1,5 +1,3 @@
-// src/components/Login.jsx
-
 import React, { useState } from 'react';
 
 function Login() {
@@ -17,9 +15,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Réinitialiser l'erreur
-    setError('');
+    setError('');  // Réinitialiser l'erreur
 
     try {
       const response = await fetch('http://localhost:3000/api/users/login', {
@@ -29,15 +25,15 @@ function Login() {
       });
 
       const data = await response.json();
-      if (!response.ok) {
+      if (response.ok) {  // Vérifiez si la réponse est ok
+        localStorage.setItem('token', data.token); // Stocker le token dans localStorage
+        console.log('Login Successful:', data);
+        // Vous pouvez également gérer la redirection ici si nécessaire
+      } else {
         throw new Error(data.message || 'Failed to login');
       }
-
-      console.log('Login Successful:', data);  // Ici vous pouvez par exemple stocker le token reçu dans localStorage
-      // Par exemple : localStorage.setItem('token', data.token);
-
     } catch (error) {
-      setError(error.message);
+      setError(error.message);  // Afficher les erreurs de connexion
     }
   };
 

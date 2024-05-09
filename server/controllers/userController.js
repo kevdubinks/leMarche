@@ -14,21 +14,16 @@ const generateToken = (userId) => {
 exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    // Vérifier si l'email est déjà utilisé
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).send("L'email est déjà utilisé.");
     }
-    // Hashage du mot de passe
-    const hashedPassword = await bcrypt.hash(password, 12);
-    // Création de l'utilisateur
     const user = new User({
       username,
       email,
-      password: hashedPassword,
+      password, // Directement stocké et haché par le middleware
     });
     await user.save();
-    // Génération du token JWT
     const token = generateToken(user._id);
     res.status(201).json({ user, token });
   } catch (error) {
@@ -38,7 +33,6 @@ exports.register = async (req, res) => {
 
 // Connexion d'un utilisateur
 exports.login = async (req, res) => {
-  console.log("User login attempt with:", req.body);
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });

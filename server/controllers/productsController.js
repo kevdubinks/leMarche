@@ -66,3 +66,12 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+exports.getNewestProducts = async (req, res) => {
+  try {
+    // Trouver les 3 derniers produits ajoutés
+    const products = await Product.find().sort({ createdAt: -1 }).limit(3);
+    res.json(products);
+  } catch (error) {
+    res.status(500).send("Server error");
+  }
+};

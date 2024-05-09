@@ -100,6 +100,7 @@ router.delete(
   isAdmin,
   productsController.deleteProduct
 );
+router.get("/newest", productsController.getNewestProducts);
 
 // Routes des avis
 router.post(

@@ -36,10 +36,14 @@ function CreateProductForm() {
     formData.append('inStock', product.inStock);
 
     try {
-      const response = await fetch("http://localhost:3000/api/products/add", {
-        method: 'POST',
-        body: formData
-      });
+        const response = await fetch("http://localhost:3000/api/products/add", {
+          method: 'POST',
+          headers: new Headers({
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            // Note: Content-Type is not set because it is set automatically by the browser when you use FormData
+          }),
+          body: formData
+        });
 
       if (!response.ok) {
         throw new Error('Failed to create product');
