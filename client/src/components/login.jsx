@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Assurez-vous que c'est bien importé
 
 function Login() {
+  const navigate = useNavigate();  // Correctement instancié
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,17 +27,26 @@ function Login() {
       });
 
       const data = await response.json();
-      if (response.ok) {  // Vérifiez si la réponse est ok
-        localStorage.setItem('token', data.token); // Stocker le token dans localStorage
-        console.log('Login Successful:', data);
-        // Vous pouvez également gérer la redirection ici si nécessaire
+    if (response.ok) {
+      localStorage.setItem('token',data.token);
+      localStorage.setItem('role',data.role); // Stocker le token dans localStorage
+      console.log('Login Successful:');
+       // Ajoutez cela juste après avoir reçu la réponse pour voir ce qui est retourné
+
+
+      // Redirection basée sur le rôle de l'utilisateur
+      if (data.user && data.user.role === 'admin') {
+        navigate('/admin/dashboard');  // Rediriger vers le tableau de bord admin
       } else {
-        throw new Error(data.message || 'Failed to login');
+        navigate('/');  // Rediriger vers la page d'accueil pour les utilisateurs normaux
       }
-    } catch (error) {
-      setError(error.message);  // Afficher les erreurs de connexion
+    } else {
+      throw new Error(data.message || 'Failed to login');
     }
-  };
+  } catch (error) {
+    setError(error.message);
+  }
+};
 
   return (
     <div>
